@@ -98,6 +98,9 @@ function addProduct(id) {
             "products": []
         }
     }
+    if (!cart.products) {
+        cart.products = [];
+    }
     let found = false;
     cart.products.forEach(function (product) {
         if (product.id == id) {

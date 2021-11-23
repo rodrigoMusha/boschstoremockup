@@ -49,17 +49,34 @@ function shipping() {
     let cep = $("#cep").val()
     if (cep.length == 9) {
         let cart = getCart();
-        let fee = 10;
-        cart.products.forEach(function (product) {
-            fee += 10 * product.quantity;
+        cep = cep.replace(/[^0-9]/, "");
+        var url = "https://viacep.com.br/ws/" + cep + "/json/";
+        $.getJSON(url, function (data) {
+            try {
+                if (!data.erro) {
+                    console.log(data)
+                    cart.cep = cep;
+                    if (data.localidade == "Curitiba") {
+                        cart.shipping = 10;
+                    } else {
+                        cart.shipping = 50;
+                    }
+                    saveCart(cart);
+                    loadCart(cart);
+                    $("#ceperror").hide();
+                } else {
+                    $("#cep").val("");
+                    $("#ceperror").show();
+                }
+            } catch (e) {
+                $("#cep").val("");
+                $("#ceperror").show();
+            }
         });
-        if (fee > 10) {
-            cart.shipping = fee;
-        }
-        saveCart(cart);
-        loadCart(cart);
+
     } else {
-        $(".error").show();
+        $("#cep").val("");
+        $("#ceperror").show();
     }
 }
 
