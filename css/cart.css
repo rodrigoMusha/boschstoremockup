@@ -1,0 +1,199 @@
+body{
+    background-color: #DFE2E4;
+    margin: 0px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+.header{
+    width: 98%;
+    margin: 2px auto 2px auto;
+    height: 30px;
+    display: flex;
+}
+
+
+.header img{
+    object-fit: contain;
+    margin: 2px;
+    cursor: pointer;
+}
+.header #userContainer{
+    width: auto;
+    height:100%;
+    font-size: large;
+    margin-left: auto;
+    
+}
+
+.header i{
+    color: #005691;
+    font-size: x-large;
+    margin: 2px;
+}
+#userContainer i{
+    color: #E00420;
+    font-size: x-large;
+}
+.header i:hover{
+    cursor:pointer;
+}
+
+
+.tabs{
+    width: 80%;
+    display: flex;
+    justify-content:space-between;
+    border-bottom:solid #E00420 1px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.tabs div{
+    padding: 10px 20px 10px 20px;
+    font-size: large;
+}
+
+.tabs .selected{
+    background-color: #E00420;
+    color: #DFE2E4;
+}
+
+.tabs div:hover{
+    cursor: pointer;
+    background-color: #E00420;
+    color: #DFE2E4;
+}
+
+.tabs div:first-child{
+    margin-left: auto;
+}
+
+.tabs div:last-child{
+    margin-right: auto;
+}
+
+.tabs div:not(:first-child){
+    border-left:solid #E00420 1px;
+}
+
+.infoOrder{
+    width: 80%;
+    margin: 5px auto 5px auto;
+    height: auto;
+    display: flex;
+}
+.infoOrder div{
+    text-align: center;
+    line-height: 20px;
+}
+
+
+
+
+.footer {
+    background-color: #E00420;
+    color: #DFE2E4;
+    bottom:0; 
+    width:100%; 
+    margin-top: auto;
+    justify-content:space-around;
+    height:100px; 
+    display: flex;
+}
+.footer div{
+    padding: 2px;
+    flex-direction: column;
+}
+
+.social i{
+    font-size: xx-large;
+    color: #DFE2E4;
+}
+.payment i{
+    font-size:xx-large;
+    color: #DFE2E4;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .footer {
+    flex-direction: column;
+    height: auto; 
+    }
+    .footer img{
+        height: 50px;
+        width: auto;
+    }
+}
+
+table{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+table thead{
+    background-color: #003B6A;
+}
+
+table td{
+    width: 20%;
+}
+
+table tbody tr:nth-child(2n){
+    background-color: #525f6b;
+}
+
+table tbody tr:nth-child(2n+1){
+    background-color: #5b6269;
+}
+
+table td{
+    text-align: center;
+    color: #DFE2E4;
+    padding:2px;
+}
+
+table img{
+    width: 50px;
+    height: 50px;
+}
+
+table i{
+    margin:5px;
+    cursor: pointer;
+}
+
+.calcContainer {
+    margin: 10px;
+    display: flex;
+     justify-content:space-around ;
+}
+button{
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    background-color: #E00420;
+    color: #DFE2E4;
+}
+
+.finishContainer{
+    display: flex;
+    justify-content:space-evenly ;
+}
+.calcContainer button{
+    background-color: #E00420;
+}
+.finishContainer button{
+    background-color: #003B6A;
+}
+
+.error {
+    margin-top: auto;
+    display: none;
+    color: red;
+}

@@ -1,0 +1,109 @@
+<html>
+
+<head>
+	<title>Loja Bosch</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="../css/cart.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="../js/cart.js"></script>
+	<link rel="shortcut icon" href="../images/Bosch-Icon.png" />
+
+
+
+</head>
+
+<body>
+	<div class="header">
+		<img onclick="location.href='./home.html';" src="../images/Bosch-Logo.png" alt="Bosch">
+
+		<div id="userContainer">
+			Ol&aacute;, <span id="username"></span>!
+			<i onclick="logout()" class="fas fa-sign-out-alt"></i>
+		</div>
+		<i onclick="shoppingCart()" class="fas fa-shopping-cart"></i>
+	</div>
+	<div class="tabs">
+		<div id="cat1tab" onclick="location.href='./home.html?cat=1';">Ferramentas</div>
+		<div id="cat2tab" onclick="location.href='./home.html?cat=2';">Acess&oacute;rios</div>
+	</div>
+	<div class="infoOrder">
+		<div id="catpath"><a href="./home.html">In&iacute;cio </a>/ Carrinho de compras</div>
+	</div>
+
+	<table>
+		<thead>
+			<tr>
+				<td colspan="2">Produto</td>
+				<td>Quantidade</td>
+				<td>Pre&ccedil;o</td>
+				<td>Subtotal</td>
+			</tr>
+		</thead>
+		<tbody id="cart">
+
+		</tbody>
+	</table>
+
+	<div class="calcContainer">
+		<div>
+			<div>
+				Calcular Frete
+				<i class="fas fa-truck"></i>
+			</div>
+			<div>
+				<input id="cep" placeholder="Digite seu CEP" type="text">
+				<button onclick="shipping()">Calcular</button>
+			</div>
+			<div class="error">Insira um CEP v&aacute;lido</div>
+			<br>
+			<div>
+				<a href="https://buscacepinter.correios.com.br/app/endereco/index.php?" target="_blank">N&atilde;o sei
+					meu cep</a>
+			</div>
+		</div>
+		<div>
+			<div>
+				Subtotal(sem frete):<span id="subtotal"></span>
+			</div>
+			<div>
+				Frete: <span id="shipping"></span>
+			</div>
+			<div>
+				Total: <span id="total"></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="finishContainer">
+		<button onclick="location.href='./home.html';">Continuar Comprando</button>
+		<button onclick="location.href='./checkout.html';">Finalizar Compra</button>
+	</div>
+
+
+	<div class="footer">
+		<div class="payment">
+			<div>Formas de pagamento:</div>
+			<i class="fab fa-cc-visa"></i>
+			<i class="fab fa-cc-mastercard"></i>
+			<i class="fab fa-cc-paypal"></i>
+			<i class="fab fa-cc-amex"></i>
+
+		</div>
+		<div>
+			<div>Contatos:</div>
+			<div><i class="fas fa-phone"></i>(41) 99632-5384</div>
+			<div><i class="fas fa-phone"></i>rodrigo.musha@bosch.com</div>
+		</div>
+		<div class="social">
+			<div>Redes Sociais:</div>
+			<a href="https://www.facebook.com/boschferramentas" target="_blank"><i class="fab fa-facebook"></i></a>
+			<a href="https://www.instagram.com/boschferramentas" target="_blank"><i class="fab fa-instagram"></i></a>
+			<a href="https://api.whatsapp.com/send?phone=5541996325384&text=Ol%C3%A1%2C%20adorei%20seu%20site%2C%20voc%C3%AA%20est%C3%A1%20de%20parab%C3%A9ns!"
+				target="_blank"><i class="fab fa-whatsapp"></i></a>
+		</div>
+	</div>
+</body>
+
+</html>

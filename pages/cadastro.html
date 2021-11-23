@@ -1,0 +1,43 @@
+<html>
+
+<head>
+	<title>Cadastro Bosch</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="../css/cadastro.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="../js/cadastro.js"></script>
+	<link rel="shortcut icon" href="../images/Bosch-Icon.png" />
+
+
+</head>
+
+<body>
+	<div id="signup" class="signupForm" data-ajax="false">
+		<img src="../images/Bosch-Logo.png" alt="Bosch">
+		<form class="signup">
+			<span id="usererror" class="error">J&aacute; existe um usu&aacute;rio com este e-mail!</span>
+			<span>E-mail</span>
+			<input id="email" placeholder="ex: nome@gmail.com" type="email" required />
+			<span>Nome Completo</span>
+			<input id="name" placeholder="ex: Maria da Silva" type="text" required />
+			<span>Telefone (opcional)</span>
+			<input class="phone" id="tel" placeholder="ex: (41) 99999-9999" type="tel" />
+			<span id="passerror" class="error">As senhas n&atilde;o coincidem. Digite novamente.</span>
+			<span>Senha</span>
+			<input id="pass" placeholder="Senha" type="password" required />
+			<span>Confirme a senha</span>
+			<input id="pass2" placeholder="Confirme a senha" type="password" required />
+			<button type="submit">Cadastre-se</button>
+			<a href="..">J&aacute; possui uma conta? Iniciar sess&atilde;o</a>
+		</form>
+		<div id="sucesso">
+			<h3>Seja bem-vindo!</h3>
+			<p>Agora vamos voltar para o p&aacute;gina de login e iniciar uma
+				sess&atilde;o</p>
+			<button onclick="window.location.href='..'">Vamos l&aacute;!</button>
+		</div>
+	</div>
+</body>
+
+</html>

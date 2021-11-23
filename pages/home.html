@@ -1,0 +1,72 @@
+<html>
+
+<head>
+	<title>Loja Bosch</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="../css/home.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="../js/home.js"></script>
+	<link rel="shortcut icon" href="../images/Bosch-Icon.png" />
+
+
+</head>
+
+<body>
+	<div class="header">
+		<img onclick="location.href='./home.html';" src="../images/Bosch-Logo.png" alt="Bosch">
+
+		<div id="userContainer">
+			Ol&aacute;, <span id="username"></span>!
+			<i onclick="logout()" class="fas fa-sign-out-alt"></i>
+		</div>
+		<i onclick="shoppingCart()" class="fas fa-shopping-cart"></i>
+	</div>
+	<div class="tabs">
+		<div id="cat1tab" onclick="location.href='./home.html?cat=1';">Ferramentas</div>
+		<div id="cat2tab" onclick="location.href='./home.html?cat=2';">Acess&oacute;rios</div>
+	</div>
+	<div class="infoOrder">
+		<div id="catpath"><a href="./home.html">In&iacute;cio</a></div>
+		<div class="sortBy">
+			Ordernar por
+			<select id="sortBy" onchange="update()">
+				<option value="1">Mais Vendido</option>
+				<option value="2">Maior Pre&ccedil;o</option>
+				<option value="3">Menor Pre&ccedil;o</option>
+				<option value="4">A-Z</option>
+			</select>
+		</div>
+	</div>
+	<div class="searchContainer">
+		<input id="search" onkeyup="update()" type="text" />
+		<i class="fas fa-search"></i>
+	</div>
+	<div id="productContainer">
+	</div>
+	<div class="footer">
+		<div class="payment">
+			<div>Formas de pagamento:</div>
+			<i class="fab fa-cc-visa"></i>
+			<i class="fab fa-cc-mastercard"></i>
+			<i class="fab fa-cc-paypal"></i>
+			<i class="fab fa-cc-amex"></i>
+
+		</div>
+		<div>
+			<div>Contatos:</div>
+			<div><i class="fas fa-phone"></i>(41) 99632-5384</div>
+			<div><i class="fas fa-phone"></i>rodrigo.musha@bosch.com</div>
+		</div>
+		<div class="social">
+			<div>Redes Sociais:</div>
+			<a href="https://www.facebook.com/boschferramentas" target="_blank"><i class="fab fa-facebook"></i></a>
+			<a href="https://www.instagram.com/boschferramentas" target="_blank"><i class="fab fa-instagram"></i></a>
+			<a href="https://api.whatsapp.com/send?phone=5541996325384&text=Ol%C3%A1%2C%20adorei%20seu%20site%2C%20voc%C3%AA%20est%C3%A1%20de%20parab%C3%A9ns!"
+				target="_blank"><i class="fab fa-whatsapp"></i></a>
+		</div>
+	</div>	
+</body>
+
+</html>

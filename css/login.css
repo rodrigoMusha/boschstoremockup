@@ -1,0 +1,55 @@
+body{
+    background-color: #DFE2E4;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login input{
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding: 3px;
+}
+
+.login button{
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    background-color: #E00420;
+    color: #DFE2E4;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 0 auto;
+    width: 50%;
+    height: 50%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .loginForm {
+    width: 95%;
+    height: 95%;
+}
+}
+
+.loginForm img{
+    width: 80%;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;   
+}
+
+.error {
+    margin-top: auto;
+    display: none;
+    color: red;
+}
