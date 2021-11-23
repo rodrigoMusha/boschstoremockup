@@ -116,6 +116,30 @@ body{
     color: #DFE2E4;
 }
 
+.checkout{
+    display: flex;
+}
+
+.checkout form{
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.checkout a{
+    text-align: center;
+}
+.checkout form input{
+    margin:5px;
+}
+
+.checkout .expiral{
+    display: flex;
+}
+.cartList img{
+    width: 50px;
+    height: auto;
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -126,6 +150,13 @@ body{
     .footer img{
         height: 50px;
         width: auto;
+    }
+
+    .checkout{
+    flex-direction: column-reverse;
+    }
+    .checkout form{
+        width: 90%;
     }
 }
 

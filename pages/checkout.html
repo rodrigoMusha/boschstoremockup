@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="../node_modules/card/dist/card.js"></script>
     <script type="text/javascript" src="../js/checkout.js"></script>
     <link rel="shortcut icon" href="../images/Bosch-Icon.png" />
 
@@ -31,6 +32,50 @@
     <div class="infoOrder">
         <div id="catpath"><a href="./home.html">In&iacute;cio </a>/ Checkout</div>
     </div>
+
+
+    <div class="checkout">
+        <form>
+            <h3><i class="fas fa-truck"></i> Entrega</h3>
+            <h4>CEP</h4>
+            <input id="cep" placeholder="CEP" type="text">
+            <a href="https://buscacepinter.correios.com.br/app/endereco/index.php?" target="_blank">N&atilde;o sei
+                meu cep</a>
+            <h4>Endere&ccedil;o</h4>
+            <input id="logradouro" placeholder="Logradouro" type="text" readonly>
+            <div><input placeholder="N&uacute;mero" type="text"> <input placeholder="Complemento" type="text"></div>
+            <input id="bairro" placeholder="Bairro" type="text" readonly>
+            <input id="cidade" placeholder="Cidade" type="text" readonly>
+            <input id="estado" placeholder="Estado" type="text" readonly>
+            <h3>Pagamento</h3>
+            <h4><i class="fas fa-credit-card"></i> Cart&atilde;o de Cr&eacute;dito</h4>
+            <span>N&uacute;mero do cart&atilde;o</span>
+            <input id="card" id="cartao" placeholder="XXXX XXXX XXXX XXXX" type="text">
+            <span>Nome impresso no cart&atilde;o</span>
+            <input id="name" id="nome" placeholder="ex. Jo&atilde;o da Silva" type="text">
+            <div class="expiral">
+                <div>
+                    <span>Validade (MM/AA)</span>
+                    <input id="exp" placeholder="MM/AA" type="text">
+                </div>
+                <div>
+                    <span>C&oacute;digo de seguran&ccedil;a(CVV) <i title="Impresso no verso do cart&atilde;o"
+                            class="fas fa-question-circle"></i></span>
+                    <input id="cvv" placeholder="XXX" type="text">
+                </div>
+            </div>
+        </form>
+        <div class="cartList">
+            <div>
+                <div><img src="../images/furadeira.jpg" alt=""><span>Produto x 2</span><span>R$20,00</span></div>
+                <div><img src="../images/furadeira.jpg" alt=""><span>Produto x 2</span><span>R$20,00</span></div>
+                <div><img src="../images/furadeira.jpg" alt=""><span>Produto x 2</span><span>R$20,00</span></div>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <div class="footer">
         <div class="payment">
