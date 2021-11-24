@@ -26,8 +26,10 @@ $(document).ready(function () {
     if (user) {
         $('#username').text(user.name.split(" ")[0])
         let cart = getCart();
-        cart.shipping = 0;
-        saveCart(cart);
+        if(cart.cep){
+            $("#cep").val(cart.cep.substr(0,5)+"-"+cart.cep.substr(5,9));
+            shippingFee();
+        }
         loadCart(cart);
         var urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('cat')) {
@@ -45,16 +47,16 @@ $(document).ready(function () {
     }
 });
 
-function shipping() {
+function shippingFee() {
+    console.log("shipping")
     let cep = $("#cep").val()
     if (cep.length == 9) {
-        let cart = getCart();
         cep = cep.replace(/[^0-9]/, "");
         var url = "https://viacep.com.br/ws/" + cep + "/json/";
         $.getJSON(url, function (data) {
             try {
                 if (!data.erro) {
-                    console.log(data)
+                    let cart = getCart();
                     cart.cep = cep;
                     if (data.localidade == "Curitiba") {
                         cart.shipping = 10;
@@ -63,19 +65,24 @@ function shipping() {
                     }
                     saveCart(cart);
                     loadCart(cart);
+                    $("#address").show();
+                    $("#address").text("Frete para: "+data.logradouro+", "+data.localidade)
                     $("#ceperror").hide();
                 } else {
                     $("#cep").val("");
+                    $("#address").hide();
                     $("#ceperror").show();
                 }
             } catch (e) {
                 $("#cep").val("");
+                $("#address").hide();
                 $("#ceperror").show();
             }
         });
 
     } else {
         $("#cep").val("");
+        $("#address").hide();
         $("#ceperror").show();
     }
 }
@@ -132,6 +139,11 @@ function loadCart(cart) {
     })
     cartTotalUpdate(cart);
     $("#subtotal").text(formatter.format(cart.subtotal));
-    $("#shipping").text(formatter.format(cart.shipping));
+    
+    if(cart.shipping){
+        $("#shipping").text(formatter.format(cart.shipping));
+    } else{
+        $("#shipping").text("-")
+    }
     $("#total").text(formatter.format(cart.subtotal + cart.shipping));
 }

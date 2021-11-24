@@ -22,31 +22,15 @@ $(document).ready(function () {
     $("#cidade").focus(cepFocus);
     $("#estado").focus(cepFocus);
 
-    $("#cep").change(function () {
-        if (this.value.length == 9) {
-            var cep = this.value.replace(/[^0-9]/, "");
-            var url = "https://viacep.com.br/ws/" + cep + "/json/";
-            $.getJSON(url, function (data) {
-                console.log(data)
-                try {
-                    if (!data.erro) {
-                        $("#logradouro").val(data.logradouro);
-                        $("#bairro").val(data.bairro);
-                        $("#cidade").val(data.localidade);
-                        $("#estado").val(data.uf);
-                        $("#ceperror").hide();
-                    } else {
-                        $("#cep").val("");
-                        $("#ceperror").show();
-                    }
-                } catch (e) {
-                    $("#cep").val("");
-                    $("#ceperror").show();
-                }
-            });
-        }
-    })
+    let cart = getCart();
+    
 
+    $("#cep").change(updateAddress)
+    if(cart.cep){
+        console.log(cart)
+        $("#cep").val(cart.cep.substr(0,5)+"-"+cart.cep.substr(5,9));
+        updateAddress();
+    }
 
 
     let user = JSON.parse(window.localStorage.getItem("boschsession"));
@@ -56,3 +40,40 @@ $(document).ready(function () {
         window.location.href = '../'
     }
 });
+
+
+function updateAddress() {
+    let cep = $("#cep").val();
+    console.log(cep)
+    cep = cep.replace(/[^0-9]/, "");
+    var url = "https://viacep.com.br/ws/" + cep + "/json/";
+    $.getJSON(url, function (data) {
+        console.log(data)
+        try {
+            if (!data.erro) {
+                $("#logradouro").val(data.logradouro);
+                $("#bairro").val(data.bairro);
+                $("#cidade").val(data.localidade);
+                $("#estado").val(data.uf);
+                $("#ceperror").hide();
+            } else {
+                $("#cep").val("");
+                $("#ceperror").show();
+            }
+        } catch (e) {
+            $("#cep").val("");
+            $("#ceperror").show();
+        }
+    });
+}
+function getCart() {
+    let cart = JSON.parse(window.localStorage.getItem("boschCart"));
+    if (!cart) {
+        cart = {
+            "products": [],
+            "shipping": 0
+        };
+        window.localStorage.setItem("boschCart", JSON.stringify(cart));
+    }
+    return cart;
+}
