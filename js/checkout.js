@@ -23,30 +23,18 @@ $(document).ready(function () {
     $("#estado").focus(cepFocus);
 
     let cart = getCart();
-    
+
 
     $("#cep").change(updateAddress)
-    if(cart.cep){
+    if (cart.cep) {
         console.log(cart)
-        $("#cep").val(cart.cep.substr(0,5)+"-"+cart.cep.substr(5,9));
+        $("#cep").val(cart.cep.substr(0, 5) + "-" + cart.cep.substr(5, 9));
         updateAddress();
     }
 
+    cartUpdate(cart)
 
-    var formatter = new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-    });
-    cartTotalUpdate(cart);
-    $("#subtotal").text(formatter.format(cart.subtotal));
-    
-    if(cart.shipping){
-        $("#shipping").text(formatter.format(cart.shipping));
-    } else{
-        $("#shipping").text("-")
-    }
-    $("#total").text(formatter.format(cart.subtotal + cart.shipping));
-    
+
 
     let user = JSON.parse(window.localStorage.getItem("boschsession"));
     if (user) {
@@ -55,6 +43,44 @@ $(document).ready(function () {
         window.location.href = '../'
     }
 });
+
+
+
+function cartUpdate(cart) {
+    $("#cart").empty();
+    let template = '<div>';
+    template += '<img src="{{path}}">';
+    template += '<span>{{desc}} x {{quantity}}</span>';
+    template += '<span>Total: {{total}}</span>';
+    template += '</div>';
+    var formatter = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+    });
+    if (cart.products.length < 1) {
+        $("#cart").append("<tr><td colspan='5'>Carrinho Vazio</td></tr>")
+    }
+    cart.products.forEach((item, index) => {
+        $("#cart").append(template.replaceAll("{{quantity}}", item.quantity).replaceAll("{{path}}", item.path)
+            .replaceAll("{{index}}", index).replaceAll("{{desc}}", item.desc).replaceAll("{{price}}", formatter.format(item.price))
+            .replaceAll("{{total}}", formatter.format(item.price * item.quantity)));
+    })
+
+    var formatter = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+    });
+    cartTotalUpdate(cart);
+    $("#subtotal").text(formatter.format(cart.subtotal));
+
+    if (cart.shipping) {
+        $("#shipping").text(formatter.format(cart.shipping));
+        $("#total").text(formatter.format(cart.subtotal + cart.shipping));
+    } else {
+        $("#shipping").text("-")
+        $("#total").text(formatter.format(cart.subtotal));
+    }
+}
 
 function cartTotalUpdate(cart) {
     let sum = 0;
@@ -78,6 +104,15 @@ function updateAddress() {
                 $("#cidade").val(data.localidade);
                 $("#estado").val(data.uf);
                 $("#ceperror").hide();
+
+                let cart = getCart();
+                if (data.localidade == "Curitiba") {
+                    cart.shipping = 10;
+                } else {
+                    cart.shipping = 50;
+                }
+                saveCart(cart);
+                cartUpdate(cart);
             } else {
                 $("#cep").val("");
                 $("#ceperror").show();
@@ -88,6 +123,7 @@ function updateAddress() {
         }
     });
 }
+
 function getCart() {
     let cart = JSON.parse(window.localStorage.getItem("boschCart"));
     if (!cart) {
@@ -98,4 +134,8 @@ function getCart() {
         window.localStorage.setItem("boschCart", JSON.stringify(cart));
     }
     return cart;
+}
+
+function saveCart(cart) {
+    window.localStorage.setItem("boschCart", JSON.stringify(cart));
 }

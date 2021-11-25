@@ -33,65 +33,59 @@
     </div>
 
 
-    <div class="checkout">
-        <form>
+    <form class="checkout" action="../pages/home.html">
+
+        <div class="left">
             <h3><i class="fas fa-truck"></i> Entrega</h3>
             <h4>CEP</h4>
-            <input id="cep" placeholder="CEP" type="text">
+            <input id="cep" placeholder="CEP" type="text" required>
             <div id="ceperror" class="error">Insira um CEP v&aacute;lido</div>
             <a href="https://buscacepinter.correios.com.br/app/endereco/index.php?" target="_blank">N&atilde;o sei
                 meu cep</a>
             <h4>Endere&ccedil;o</h4>
-            <input id="logradouro" placeholder="Logradouro" type="text" readonly>
-            <div><input placeholder="N&uacute;mero" type="text"> <input placeholder="Complemento" type="text"></div>
-            <input id="bairro" placeholder="Bairro" type="text" readonly>
-            <input id="cidade" placeholder="Cidade" type="text" readonly>
-            <input id="estado" placeholder="Estado" type="text" readonly>
-            <h3>Pagamento</h3>
-            <h4><i class="fas fa-credit-card"></i> Cart&atilde;o de Cr&eacute;dito</h4>
+            <input id="logradouro" placeholder="Logradouro" type="text" readonly required>
+            <div><input placeholder="N&uacute;mero" type="text" required> <input placeholder="Complemento" type="text">
+            </div>
+            <input id="bairro" placeholder="Bairro" type="text" readonly required>
+            <input id="cidade" placeholder="Cidade" type="text" readonly required>
+            <input id="estado" placeholder="Estado" type="text" readonly required>
+            <h3> <i class="fas fa-credit-card"></i> Pagamento</h3>
+            <h4> Cart&atilde;o de Cr&eacute;dito</h4>
             <span>N&uacute;mero do cart&atilde;o</span>
-            <input id="card" id="cartao" placeholder="XXXX XXXX XXXX XXXX" type="text">
+            <input id="card" id="cartao" placeholder="XXXX XXXX XXXX XXXX" type="text" required>
             <span>Nome impresso no cart&atilde;o</span>
-            <input id="name" id="nome" placeholder="ex. Jo&atilde;o da Silva" type="text">
+            <input id="name" id="nome" placeholder="ex. Jo&atilde;o da Silva" type="text" required>
             <div class="expiral">
                 <div>
                     <span>Validade (MM/AA)</span>
-                    <input id="exp" placeholder="MM/AA" type="text">
+                    <input id="exp" placeholder="MM/AA" type="text" required>
                 </div>
                 <div>
                     <span>C&oacute;digo de seguran&ccedil;a(CVV) <i title="Impresso no verso do cart&atilde;o"
                             class="fas fa-question-circle"></i></span>
-                    <input id="cvv" placeholder="XXX" type="text">
+                    <input id="cvv" placeholder="XXX" type="text" required>
                 </div>
             </div>
-        </form>
-        <div class="cartList">
-            <div>
-                <img src="../images/furadeira.jpg" alt="">
-                <span>Produto x 2</span>
-                <span>R$20,00</span>
-            </div>
-            <div>
-                <img src="../images/furadeira.jpg" alt="">
-                <span>Produto x 2</span>
-                <span>R$20,00</span>
-            </div>
-            <div>
-                <img src="../images/furadeira.jpg" alt="">
-                <span>Produto x 2</span>
-                <span>R$20,00</span>
-            </div>
-            <div>
-				Subtotal(sem frete):<span id="subtotal"></span>
-			</div>
-			<div>
-				Frete: <span id="shipping"></span>
-			</div>
-			<div>
-				Total: <span id="total"></span>
-			</div>
         </div>
-    </div>
+        <div class="cartList">
+            <h3><i class="fas fa-shopping-cart"></i> Carrinho</h3>
+            <div id="cart">
+            </div>
+            <div class="total">
+                <div>
+                    <b>Subtotal(sem frete):</b> <span id="subtotal"></span>
+                </div>
+                <div>
+                    <b>Frete:</b> <span id="shipping"></span>
+                </div>
+                <div>
+                    <b>Total:</b> <span id="total"></span>
+                </div>
+            </div>
+
+            <button type="submit">Fazer pedido</button>
+        </div>
+    </form>
 
 
 

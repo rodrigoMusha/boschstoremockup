@@ -26,8 +26,8 @@ $(document).ready(function () {
     if (user) {
         $('#username').text(user.name.split(" ")[0])
         let cart = getCart();
-        if(cart.cep){
-            $("#cep").val(cart.cep.substr(0,5)+"-"+cart.cep.substr(5,9));
+        if (cart.cep) {
+            $("#cep").val(cart.cep.substr(0, 5) + "-" + cart.cep.substr(5, 9));
             shippingFee();
         }
         loadCart(cart);
@@ -66,7 +66,7 @@ function shippingFee() {
                     saveCart(cart);
                     loadCart(cart);
                     $("#address").show();
-                    $("#address").text("Frete para: "+data.logradouro+", "+data.localidade)
+                    $("#address").text("Frete para: " + data.logradouro + ", " + data.localidade)
                     $("#ceperror").hide();
                 } else {
                     $("#cep").val("");
@@ -139,11 +139,12 @@ function loadCart(cart) {
     })
     cartTotalUpdate(cart);
     $("#subtotal").text(formatter.format(cart.subtotal));
-    
-    if(cart.shipping){
+
+    if (cart.shipping) {
         $("#shipping").text(formatter.format(cart.shipping));
-    } else{
+        $("#total").text(formatter.format(cart.subtotal + cart.shipping));
+    } else {
         $("#shipping").text("-")
+        $("#total").text(formatter.format(cart.subtotal));
     }
-    $("#total").text(formatter.format(cart.subtotal + cart.shipping));
 }

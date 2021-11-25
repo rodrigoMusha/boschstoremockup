@@ -120,8 +120,11 @@ body{
     display: flex;
 }
 
-.checkout form{
-    width: 50%;
+h3{
+    font-size: x-large;
+}
+.checkout .left{
+    width: 40%;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -129,7 +132,7 @@ body{
 .checkout a{
     text-align: center;
 }
-.checkout form input{
+.checkout  input{
     margin:5px;
 }
 
@@ -146,23 +149,56 @@ body{
 
 .cartList{
     padding: 5px;
-    display:flex;
+    width: 40%;
+}
+
+.cartList #cart{
+    display: flex;
     flex-direction: column;
+    border-bottom: dotted;
+}
+#cart div{
+    display: flex;
+    margin: 5px;
 }
 
-.cartList div{
-    padding: 5px;
+#cart div span{
+    margin:auto 5px auto 5px;
 }
 
-.cartList span{
-    margin:5px
+#cart div span:last-child{
+    margin:auto 0 auto auto;
 }
 
-
-.cartList img{
+#cart img{
     width: 50px;
     height: auto;
+    border-radius: 5px;
 }
+
+.cartList .total{
+    padding: 5px;
+    font-size: large;
+}
+.cartList .total div{
+    display: flex;
+}
+
+.cartList .total div span{
+    margin-left: auto;
+}
+
+.cartList button{
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    background-color: #003B6A;
+    width: 50%;
+    color: #DFE2E4;
+    margin-left: auto;
+}
+
+
 
 .error {
     margin-top: auto;
@@ -182,9 +218,9 @@ body{
     }
 
     .checkout{
-    flex-direction: column-reverse;
+    flex-direction: column;
     }
-    .checkout form{
+    .checkout .left,.cartList{
         width: 90%;
     }
 }

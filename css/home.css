@@ -130,18 +130,18 @@ body{
     flex-direction: column;
 }
 
+
 .productCard {
-    height: 420px;
-    width: 300px;
+    height: auto;
+    width: 30%;
     overflow: hidden;
     margin: 5px;
     border-radius: 20px;
     background-color:white;
-    float:left
 }
 .productCard img{
-    height:300px;
-    width: auto;
+    height:auto;
+    width: 90%;
 }
 .productCard div{
     height:40px;
@@ -168,9 +168,12 @@ body{
 }
 
 #productContainer {
-    width: 90%;
+    width: 80%;
     text-align: center;
     margin-left:auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .social i{
@@ -194,5 +197,8 @@ body{
     .footer img{
         height: 50px;
         width: auto;
+    }
+    .productCard {
+        width: 100%;
     }
 }
