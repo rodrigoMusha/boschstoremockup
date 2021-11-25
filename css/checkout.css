@@ -143,6 +143,22 @@ body{
 .checkout .expiral input{
     margin-top: auto;
 }
+
+.cartList{
+    padding: 5px;
+    display:flex;
+    flex-direction: column;
+}
+
+.cartList div{
+    padding: 5px;
+}
+
+.cartList span{
+    margin:5px
+}
+
+
 .cartList img{
     width: 50px;
     height: auto;

@@ -33,6 +33,21 @@ $(document).ready(function () {
     }
 
 
+    var formatter = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+    });
+    cartTotalUpdate(cart);
+    $("#subtotal").text(formatter.format(cart.subtotal));
+    
+    if(cart.shipping){
+        $("#shipping").text(formatter.format(cart.shipping));
+    } else{
+        $("#shipping").text("-")
+    }
+    $("#total").text(formatter.format(cart.subtotal + cart.shipping));
+    
+
     let user = JSON.parse(window.localStorage.getItem("boschsession"));
     if (user) {
         $('#username').text(user.name.split(" ")[0])
@@ -41,6 +56,13 @@ $(document).ready(function () {
     }
 });
 
+function cartTotalUpdate(cart) {
+    let sum = 0;
+    cart.products.forEach(function (product) {
+        sum += product.price * product.quantity;
+    })
+    cart.subtotal = sum;
+}
 
 function updateAddress() {
     let cep = $("#cep").val();
